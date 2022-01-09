@@ -1,0 +1,16 @@
+scanners:
+  default:
+    # The path of the directory to watch
+    path: './'
+    # Recursive file walking. If true, all subdirectories will be processed.
+    recursive: false
+    # Optional file filter. Uses regular expressions to determine if a file should be processed.
+    # This example is detecting created .png files.
+    fileFilter: '^.*?\.[pP][nN][gG]$'
+    # The action to perform when a new file was detected
+    action: upload
+actions:
+  # Your actions are going here. This example action deletes the created file on Windows.
+  delete: ['cmd.exe', '/c', 'del', '%s']
+  # This example action will call ShareX to upload your file on Windows.
+  upload: ['C:\Program Files\ShareX\ShareX.exe', '%s']
